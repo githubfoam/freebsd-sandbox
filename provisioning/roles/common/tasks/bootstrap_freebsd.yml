@@ -1,0 +1,4 @@
+---
+- name: "Add packages on FreeBSD"
+  pkgng:
+      name:  python27

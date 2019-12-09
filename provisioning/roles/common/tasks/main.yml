@@ -1,0 +1,29 @@
+---
+- name: "ansible_os_family"
+  debug:
+   msg: "{{ hostvars[inventory_hostname].ansible_os_family }}"
+
+- name: "ansible_distribution"
+  debug:
+   msg: "{{ hostvars[inventory_hostname].ansible_distribution }}"
+
+- name: "ansible_distribution_major_version"
+  debug:
+   msg: "{{ hostvars[inventory_hostname].ansible_distribution_major_version }}"
+
+- name: "ansible_distribution_release"
+  debug:
+   msg: "{{ hostvars[inventory_hostname].ansible_distribution_release }}"
+
+- name: "ansible_distribution_version"
+  debug:
+   msg: "{{ hostvars[inventory_hostname].ansible_distribution_version }}"
+
+# - name: Add /etc/hosts entries
+#   include_tasks: hosts_entry.yml
+#
+# - name: Add /etc/resolv.conf entries
+#   include_tasks: resolv_entry.yml
+#
+# - name: Add FreeBSD commons
+#   include_tasks: bootstrap_freebsd.yml
