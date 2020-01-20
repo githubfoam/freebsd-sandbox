@@ -1,4 +1,48 @@
 # freebsd-bento-sandbox
+
+freebsd docker-base image(experimental)
+~~~~
+hostnamectl
+  Static hostname: vg-docker-01
+        Icon name: computer-vm
+          Chassis: vm
+       Machine ID: 3e886f65de8e45aa99bd9f0f2d00ad51
+          Boot ID: 37046bf1cd014fb8aac7a4deb9444c17
+   Virtualization: kvm
+ Operating System: CentOS Linux 7 (Core)
+      CPE OS Name: cpe:/o:centos:centos:7
+           Kernel: Linux 3.10.0-1062.9.1.el7.x86_64
+     Architecture: x86-64
+
+
+$ docker --version
+Docker version 19.03.5, build 633a0ea     
+
+$ ls -l /vagrant/dockerfiles/freebsd/
+total 217469
+-rw-rw-rw-. 1 vagrant vagrant 161218776 Nov  1 05:11 base.txz
+-rwxrwxrwx. 1 vagrant vagrant       401 Jan 19 00:03 Dockerfile.freebsd
+
+$ wget https://download.freebsd.org/ftp/releases/amd64/12.1-RELEASE/base.txz
+
+$ cat /vagrant/dockerfiles/freebsd/Dockerfile.freebsd
+# http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/12.1-RELEASE/
+# https://stackoverflow.com/questions/54158342/cannot-run-freebsd-terminal-in-docker-container
+# host must be FreeBSD
+
+FROM scratch
+LABEL Description="FreeBSD 12.1-RELEASE base installation"
+
+ADD base.txz /
+CMD ["/bin/sh"]
+
+$ sudo docker image ls
+freebsd                         12.2                e6cf098a1ce8        31 hours ago        1.13GB
+
+$ sudo docker run --rm -it freebsd:12.2 /bin/sh
+
+~~~~
+
 ~~~~
 vagrant up
 ~~~~
