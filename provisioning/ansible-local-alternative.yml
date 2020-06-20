@@ -1,7 +1,0 @@
----
-    - name: "Run ansible locally localhost ls -lrt command"
-      local_action:
-      shell: "ls -lrt"
-      register: "output"
-
-    - debug: var=output.stdout_lines
