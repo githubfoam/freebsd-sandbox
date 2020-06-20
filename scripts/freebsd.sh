@@ -3,10 +3,10 @@ set -eox pipefail #safety for script
 echo $SHELL # freebsd shell
 
 echo "=============================ansible ============================================================="
-make -C /usr/ports/sysutils/ansible install # install from ports
+# make -C /usr/ports/sysutils/ansible install # install from ports
 # pkg install py27-ansible #Python 2 version
 # pkg install py36-ansible #Python 3 version
-ansible --version
+# ansible --version
 cat <<EOF | sudo tee ansible-local.yml
 ---
   - name: "Run ansible locally localhost"
