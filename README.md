@@ -1,28 +1,8 @@
 # freebsd-sandbox
 
 Travis (.com) branch:
-[![Build Status](https://travis-ci.com/githubfoam/freebsd-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/freebsd-sandbox)  
+[![Build Status](https://travis-ci.com/githubfoam/freebsd-sandbox.svg?branch=dev)](https://travis-ci.com/githubfoam/freebsd-sandbox)  
 
-smoke tests openEBS
-~~~~
-$ sudo kubectl get pods --namespace=openebs
-
-NAME                                           READY   STATUS    RESTARTS   AGE
-
-maya-apiserver-5d87746c75-gjzlv                0/1     Running   2          29s
-
-openebs-admission-server-766f5d7c48-csscs      1/1     Running   0          28s
-
-openebs-localpv-provisioner-695ffd78d6-72gwj   1/1     Running   0          28s
-
-openebs-ndm-operator-58ccd48f9d-2lp7z          0/1     Running   1          28s
-
-openebs-ndm-pxcz5                              1/1     Running   0          28s
-
-openebs-provisioner-64c9565ccb-7pd8m           1/1     Running   0          28s
-
-openebs-snapshot-operator-cf5cc6c54-8lh7g      2/2     Running   0          28s
-~~~~
 
 freebsd docker-base image(experimental)
 ~~~~
