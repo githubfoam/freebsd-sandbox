@@ -48,8 +48,8 @@ vagrant box add "freebsd/FreeBSD-12.1-STABLE" --provider=virtualbox
 vagrant mutate "freebsd/FreeBSD-12.1-STABLE" libvirt
 vagrant box add "bento/hardenedbsd-11" --provider=virtualbox
 vagrant mutate "bento/hardenedbsd-11" libvirt
-vagrant box add "bento/freebsd-12.1" --provider=virtualbox
-vagrant mutate "bento/freebsd-12.1" libvirt
+# vagrant box add "bento/freebsd-12.1" --provider=virtualbox
+# vagrant mutate "bento/freebsd-12.1" libvirt
 vagrant status
 virsh list --all #show all running KVM/libvirt VMs
 vagrant box list #veridy installed boxes
