@@ -35,28 +35,26 @@ ansible --version
 
 cat <<EOF | tee ansible-local.yml
 ---
-  - name: "Run ansible locally localhost"
-    hosts: localhost
-    connection: local
-    tasks:
-
-    - name: "run ls -lrt command"
-      shell: "ls -lrt"
-      register: "output"
-
-    - debug: var=output.stdout_lines
+- name: "Run ansible locally localhost"
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "Upgrade the fbsd system"
+    command: /usr/sbin/pkg update
+  - name: "Install OpenVPN"
+    pkgng: name=openvpn state=present
 EOF
 pwd && ls -lai
 ansible-playbook ansible-local.yml
 
 
-cat <<EOF | tee hosts
-[grouphosts]
-192.168.50.14
-192.168.50.15
-EOF
-ansible -u root -i hosts -m raw -a 'uptime' grouphosts
-ansible -u root -i hosts -m raw -a 'hostname' grouphosts
-ansible -u vagrant -i hosts -m raw -a 'uptime' grouphosts
-ansible -u vagrant -i hosts -m raw -a 'hostname' grouphosts
+# cat <<EOF | tee hosts
+# [grouphosts]
+# 192.168.50.14
+# 192.168.50.15
+# EOF
+# ansible -u root -i hosts -m raw -a 'uptime' grouphosts
+# ansible -u root -i hosts -m raw -a 'hostname' grouphosts
+# ansible -u vagrant -i hosts -m raw -a 'uptime' grouphosts
+# ansible -u vagrant -i hosts -m raw -a 'hostname' grouphosts
 echo "=========================================================================================="
