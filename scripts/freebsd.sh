@@ -21,5 +21,5 @@ cat <<EOF | sudo tee ansible-local.yml
     - debug: var=output.stdout_lines
 EOF
 pwd && ls -lai
-ansible-playbook ansible-local.yml
+# ansible-playbook ansible-local.yml
 echo "=========================================================================================="
