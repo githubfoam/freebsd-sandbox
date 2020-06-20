@@ -25,36 +25,38 @@ echo "                 ||     ||                                                
 # # stat /usr/local/etc/sudoers.d/allow-wheel-user-login
 # # echo '%wheel ALL=(ALL) ALL' | sudo tee /usr/local/etc/sudoers.d/allow-wheel-user-login
 # # cat /usr/local/etc/sudoers.d/allow-wheel-user-login
-#
-#
-# pkg install python37 #Install Python 2.x or Python 3.x
-# type python3.7
-#
-# pkg install --yes py37-ansible-2.9.7 #Python 3 version
-#
-# ansible --version
-# cat <<EOF | sudo tee ansible-local.yml
-# ---
-#   - name: "Run ansible locally localhost"
-#     hosts: localhost
-#     connection: local
-#     tasks:
-#
-#     - name: "run ls -lrt command"
-#       shell: "ls -lrt"
-#       register: "output"
-#
-#     - debug: var=output.stdout_lines
-# EOF
-# pwd && ls -lai
-# ansible-playbook ansible-local.yml
-# ansible --version
-#
-# cat <<EOF | sudo tee hosts
-# [grouphosts]
-# 192.168.50.14
-# 192.168.50.15
-# EOF
-# # ansible -u vagrant -i hosts -m raw -a 'uptime' grouphosts
-# # ansible -u vagrant -i hosts -m raw -a 'hostname' grouphosts
-# echo "=========================================================================================="
+
+
+pkg install --yes python37 #Install Python 2.x or Python 3.x
+type python3.7
+
+pkg install --yes py37-ansible-2.9.7 #Python 3 version
+ansible --version
+
+cat <<EOF | tee ansible-local.yml
+---
+  - name: "Run ansible locally localhost"
+    hosts: localhost
+    connection: local
+    tasks:
+
+    - name: "run ls -lrt command"
+      shell: "ls -lrt"
+      register: "output"
+
+    - debug: var=output.stdout_lines
+EOF
+pwd && ls -lai
+ansible-playbook ansible-local.yml
+
+
+cat <<EOF | tee hosts
+[grouphosts]
+192.168.50.14
+192.168.50.15
+EOF
+ansible -u root -i hosts -m raw -a 'uptime' grouphosts
+ansible -u root -i hosts -m raw -a 'hostname' grouphosts
+ansible -u vagrant -i hosts -m raw -a 'uptime' grouphosts
+ansible -u vagrant -i hosts -m raw -a 'hostname' grouphosts
+echo "=========================================================================================="
