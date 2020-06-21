@@ -165,8 +165,8 @@ Vagrant.configure(2) do |config|
               end
 
               config.vm.define "vgnode05" do |k8scluster|
-                  # k8scluster.vm.box = "bento/hardenedbsd-11"
-                  k8scluster.vm.box = "freebsd/FreeBSD-12.1-STABLE"
+                  k8scluster.vm.box = "bento/hardenedbsd-11"
+                  # k8scluster.vm.box = "freebsd/FreeBSD-12.1-STABLE"
                   k8scluster.vm.hostname = "vgnode05"
                   k8scluster.vm.network "private_network", ip: "192.168.50.15"
                   #Disabling the default /vagrant share can be done as follows:
