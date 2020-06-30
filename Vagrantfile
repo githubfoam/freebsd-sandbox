@@ -151,6 +151,9 @@ Vagrant.configure(2) do |config|
                     vb.name = "vboxnode04"
                     vb.memory = "2048"
                 end
+
+                k8scluster.vm.provision :shell, path: "scripts/bootstrap.sh"
+                
                 # k8scluster.vm.provision "ansible_local" do |ansible|
                 #   # https://www.vagrantup.com/docs/provisioning/ansible_common.html Shared Ansible Options
                 #   ansible.become = true
@@ -161,7 +164,7 @@ Vagrant.configure(2) do |config|
                 #       }
                 #   ansible.playbook = "provisioning/deploy.yml"
                 # end
-                k8scluster.vm.provision :shell, path: "scripts/bootstrap.sh"
+
               end
 
               config.vm.define "vgnode05" do |k8scluster|
@@ -175,8 +178,12 @@ Vagrant.configure(2) do |config|
                       vb.name = "vboxnode05"
                       vb.memory = "2048"
                   end
+
+                  k8scluster.vm.provision :shell, path: "scripts/bootstrap.sh"
+
                   # k8scluster.vm.provision "ansible_local" do |ansible|
-                  #   # https://www.vagrantup.com/docs/provisioning/ansible_common.html Shared Ansible Options
+                  #   # Shared Ansible Options
+                  #   # https://www.vagrantup.com/docs/provisioning/ansible_common.html
                   #   ansible.become = true
                   #   ansible.compatibility_mode = "2.0"
                   #   ansible.version = "2.9.9"
@@ -185,7 +192,7 @@ Vagrant.configure(2) do |config|
                   #       }
                   #   ansible.playbook = "provisioning/deploy.yml"
                   # end
-                  k8scluster.vm.provision :shell, path: "scripts/bootstrap.sh"
+
 
                 end
 end

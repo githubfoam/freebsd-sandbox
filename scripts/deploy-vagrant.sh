@@ -44,14 +44,18 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # vagrant box add "centos/7" --provider=libvirt
 #https://app.vagrantup.com/archlinux/boxes/archlinux
 # vagrant box add "archlinux/archlinux" --provider=libvirt
+
 vagrant box add "freebsd/FreeBSD-12.1-STABLE" --provider=virtualbox
 vagrant mutate "freebsd/FreeBSD-12.1-STABLE" libvirt
 vagrant up --provider=libvirt vgnode04
+
 vagrant box add "bento/hardenedbsd-11" --provider=virtualbox
 vagrant mutate "bento/hardenedbsd-11" libvirt
 vagrant up --provider=libvirt vgnode05
+
 # vagrant box add "bento/freebsd-12.1" --provider=virtualbox
 # vagrant mutate "bento/freebsd-12.1" libvirt
+
 vagrant status
 virsh list --all #show all running KVM/libvirt VMs
 vagrant box list #veridy installed boxes
