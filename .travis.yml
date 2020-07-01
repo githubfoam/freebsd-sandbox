@@ -23,7 +23,9 @@ matrix:
         - pip list
         - python --version
       script:
+        - sudo make deploy-libvirt
         - sudo make deploy-vagrant
+        - sudo make deploy-boxes
       after_success:
         - deactivate
 
