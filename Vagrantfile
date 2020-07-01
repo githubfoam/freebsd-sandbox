@@ -141,19 +141,19 @@ Vagrant.configure(2) do |config|
           #     SHELL
           #   end
 
-            config.vm.define "vgnode04" do |k8scluster|
+            config.vm.define "vg-freebsd-02" do |k8scluster|
                 k8scluster.vm.box = "freebsd/FreeBSD-12.1-STABLE"
-                k8scluster.vm.hostname = "vgnode04"
+                k8scluster.vm.hostname = "vg-freebsd-02"
                 k8scluster.vm.network "private_network", ip: "192.168.50.14"
                 #Disabling the default /vagrant share can be done as follows:
-                k8scluster.vm.synced_folder ".", "/vagrant", disabled: true  # archlinux only
+                k8scluster.vm.synced_folder ".", "/vagrant", disabled: true
                 k8scluster.vm.provider "virtualbox" do |vb|
-                    vb.name = "vboxnode04"
-                    vb.memory = "2048"
+                    vb.name = "vbox-freebsd-02"
+                    vb.memory = "4096"
                 end
 
                 k8scluster.vm.provision :shell, path: "scripts/bootstrap.sh"
-                
+
                 # k8scluster.vm.provision "ansible_local" do |ansible|
                 #   # https://www.vagrantup.com/docs/provisioning/ansible_common.html Shared Ansible Options
                 #   ansible.become = true
@@ -167,16 +167,16 @@ Vagrant.configure(2) do |config|
 
               end
 
-              config.vm.define "vgnode05" do |k8scluster|
-                  k8scluster.vm.box = "bento/hardenedbsd-11"
+              config.vm.define "vg-freebsd-01" do |k8scluster|
+                  k8scluster.vm.box = "bento/freebsd-12"
                   # k8scluster.vm.box = "freebsd/FreeBSD-12.1-STABLE"
-                  k8scluster.vm.hostname = "vgnode05"
+                  k8scluster.vm.hostname = "vg-freebsd-01"
                   k8scluster.vm.network "private_network", ip: "192.168.50.15"
                   #Disabling the default /vagrant share can be done as follows:
-                  k8scluster.vm.synced_folder ".", "/vagrant", disabled: true  # archlinux only
+                  k8scluster.vm.synced_folder ".", "/vagrant", disabled: true
                   k8scluster.vm.provider "virtualbox" do |vb|
-                      vb.name = "vboxnode05"
-                      vb.memory = "2048"
+                      vb.name = "vbox-freebsd-01"
+                      vb.memory = "4096"
                   end
 
                   k8scluster.vm.provision :shell, path: "scripts/bootstrap.sh"

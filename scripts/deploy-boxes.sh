@@ -11,13 +11,13 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 
 vagrant box add "freebsd/FreeBSD-12.1-STABLE" --provider=virtualbox
 vagrant mutate "freebsd/FreeBSD-12.1-STABLE" libvirt
-vagrant up --provider=libvirt vg-freebsd-01
+vagrant up --provider=libvirt "vg-freebsd-02"
 # vagrant ssh vgnode04 -c "hostnamectl"
 
-# vgnode05: Waiting for domain to get an IP address...
-# vagrant box add "bento/hardenedbsd-11" --provider=virtualbox
-# vagrant mutate "bento/hardenedbsd-11" libvirt
-# vagrant up --provider=libvirt vgnode05
+vgnode05: Waiting for domain to get an IP address...
+vagrant box add "bento/freebsd-12" --provider=virtualbox
+vagrant mutate "bento/freebsd-12" libvirt
+vagrant up --provider=libvirt "vg-freebsd-01"
 
 
 vagrant box list #veridy installed boxes
