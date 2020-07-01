@@ -14,10 +14,11 @@ vagrant mutate "freebsd/FreeBSD-12.1-STABLE" libvirt
 vagrant up --provider=libvirt "vg-freebsd-02"
 # vagrant ssh vgnode04 -c "hostnamectl"
 
-# vgnode05: Waiting for domain to get an IP address...
-vagrant box add "bento/freebsd-12" --provider=virtualbox
-vagrant mutate "bento/freebsd-12" libvirt
-vagrant up --provider=libvirt "vg-freebsd-01"
+
+#The most common cause for this is using a shell that is unavailable on the system.
+# vagrant box add "bento/freebsd-12" --provider=virtualbox
+# vagrant mutate "bento/freebsd-12" libvirt
+# vagrant up --provider=libvirt "vg-freebsd-01"
 
 
 vagrant box list #veridy installed boxes
