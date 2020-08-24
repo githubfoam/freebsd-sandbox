@@ -4,7 +4,7 @@ Travis (.com) branch:
 [![Build Status](https://travis-ci.com/githubfoam/freebsd-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/freebsd-sandbox)  
 
 Travis (.com) dragonflybsd branch:
-[![Build Status](https://travis-ci.com/githubfoam/freebsd-sandbox.svg?branch=feature_dragonflybsd)](https://travis-ci.com/githubfoam/freebsd-sandbox)  
+[![Build Status](https://travis-ci.com/githubfoam/freebsd-sandbox.svg?branch=feature_dragonfly)](https://travis-ci.com/githubfoam/freebsd-sandbox)  
 
 Travis (.com) hardenedbsd branch:
 [![Build Status](https://travis-ci.com/githubfoam/freebsd-sandbox.svg?branch=feature_hardenedbsd)](https://travis-ci.com/githubfoam/freebsd-sandbox)  
