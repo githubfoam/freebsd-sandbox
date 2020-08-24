@@ -87,10 +87,10 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # vagrant init --template Vagrantfile.provision.bash.netbsd.erb
 # vagrant up --provider=libvirt "vg-netbsd-04"
 
-# https://app.vagrantup.com/generic/boxes/dragonflybsd5
-vagrant box add "dragonflybsd/dragonfly502-hammer" --provider=libvirt
+# https://app.vagrantup.com/generic/boxes/hardenedbsd12
+vagrant box add "generic/hardenedbsd12" --provider=virtualbox
 vagrant init --template Vagrantfile.provision.bash.dragonflybsd.erb
-vagrant up --provider=libvirt "vg-hammer-02"
+vagrant up --provider=libvirt "vg-hardenedbsd-04"
 # vagrant destroy -f "vg-netbsd-03"
 # rm Vagrantfile
 

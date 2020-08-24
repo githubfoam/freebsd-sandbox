@@ -1,3 +1,6 @@
+deploy-hardenedbsd:
+	bash scripts/deploy-hardenedbsd.sh
+	
 deploy-dragonflybsd-hammer:
 	bash scripts/deploy-dragonflybsd-hammer.sh
 
