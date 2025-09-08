@@ -131,4 +131,14 @@ pip install -r requirements.txt
 https://www.freebsd.org/
 https://www.dragonflybsd.org/
 https://hardenedbsd.org/
+
+vagrant boxes
+
+https://github.com/chef/bento/tree/main/os_pkrvars/freebsd
+
+https://portal.cloud.hashicorp.com/vagrant/discover/bento/freebsd-14.0
+
+https://portal.cloud.hashicorp.com/vagrant/discover/bento/hardenedbsd-11
+
+https://portal.cloud.hashicorp.com/vagrant/discover/dragonflybsd/dragonfly520
 ~~~~
